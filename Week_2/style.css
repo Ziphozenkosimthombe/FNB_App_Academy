@@ -10,9 +10,20 @@ p{
 
 
 ul{
-  list-style-type: circle;
+  list-style-image: url('images/pointer-icon.png');
 }
 
 ol{
   list-style-type: upper-roman;
+}
+
+#menu-bar a{
+  text-decoration: none;
+  font-family     : Helvetica, sans-serif;
+  background-color: aquamarine;
+  padding         : 5px;
+}
+#menu-bar a:hover{
+      background-color: aqua;
+      color           : #ffffff;
 }
