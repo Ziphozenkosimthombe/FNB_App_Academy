@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <table border="i">
+      <tr>
+        <td colspan="4">
+          <input type="text" id="inputBox" value="0" />
+        </td>
+      </tr>
+      <tr>
+        <td onclick="digitBtnPressed(7)">7</td>
+        <td onclick="digitBtnPressed(8)">8</td>
+        <td onclick="digitBtnPressed(9)">9</td>
+        <td onclick="operatorBtnPressed('x')">x</td>
+      </tr>
+      <tr>
+        <td onclick="digitBtnPressed(4)">4</td>
+        <td onclick="digitBtnPressed(5)">5</td>
+        <td onclick="digitBtnPressed(6)">6</td>
+        <td onclick="operatorBtnPressed('-')">-</td>
+      </tr>
+      <tr>
+        <td onclick="digitBtnPressed(1)">1</td>
+        <td onclick="digitBtnPressed(2)">2</td>
+        <td onclick="digitBtnPressed(3)">3</td>
+        <td onclick="operatorBtnPressed('+')">+</td>
+      </tr>
+      <tr>
+        <td colspan="2" onclick="digitBtnPressed(0)">0</td>
+        <td onclick="btnACPressed()">AC</td>
+        <td onclick="operatorBtnPressed('/')">/</td>
+      </tr>
+      <tr>
+        <td colspan="4" onclick="equalsBtnPressed()">=</td>
+      </tr>
+    </table>
+
+    <script>
+      let newLine = true; // flag to check if new line is needed
+      let currentOperator;
+      let value1;
+
+      // function to handle button presses
+      function digitBtnPressed(button) {
+        let currentValue = document.getElementById("inputBox").value;
+        if (newLine) {
+          document.getElementById("inputBox").value = button;
+          newLine = false;
+        } else {
+          document.getElementById("inputBox").value = currentValue + button;
+        }
+      }
+
+      // function to handle AC button press
+      function btnACPressed() {
+        document.getElementById("inputBox").value = "0";
+        newLine = true;
+      }
+
+      // function to handle operator button press
+      function operatorBtnPressed(operator) {
+        currentOperator = operator;
+        value1 = parseInt(document.getElementById("inputBox").value);
+        newLine = true;
+      }
+
+      function equalsBtnPressed() {
+        let value2 = parseInt(document.getElementById("inputBox").value);
+        let finalTotal;
+
+        switch (currentOperator) {
+          case "+":
+            finalTotal = value1 + value2;
+            break;
+          case "-":
+            finalTotal = value1 - value2;
+            break;
+          case "x":
+            finalTotal = value1 * value2;
+            break;
+          case "/":
+            finalTotal = value1 / value2;
+            break;
+        }
+        document.getElementById("inputBox").value = finalTotal;
+      }
+    </script>
+  </body>
+</html>
