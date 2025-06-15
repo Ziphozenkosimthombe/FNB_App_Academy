@@ -5,13 +5,20 @@
   <body>
     <h1 id="heading1"></h1>
     <p id="paragraph"></p>
+    <p id="paragraph2"></p>
   </body>
   <script>
     let text1 = "Hello Everyone";
     let text2 = "I love leaning Javscript. ";
     let text3 = "Javascript is awesome";
 
+    //mumber variables
+    let numA = 7;
+    let numB = 10;
+
     document.getElementById("heading1").innerHTML = text1;
     document.getElementById("paragraph").innerHTML = text2 + " " + text3;
+    document.getElementById("paragraph2").innerHTML =
+      numA + "X" + numB + "=" + numA * numB;
   </script>
 </html>
